@@ -7,7 +7,10 @@
     "preview": "vite preview --port 4173"
   },
   "dependencies": {
-    "@tanstack/vue-query": "^4.22.4",
+    "@jamescoyle/vue-icon": "^0.1.2",
+    "@mdi/js": "^7.4.47",
+    "@tanstack/vue-query": "^5.75.7",
+    "@tanstack/vue-query-devtools": "^5.75.7",
     "vite-plugin-pages": "^0.29.0",
     "vue": "^3.2.37",
     "vue-router": "^4.1.2",
