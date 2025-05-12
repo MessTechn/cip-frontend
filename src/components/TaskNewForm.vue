@@ -1,13 +1,13 @@
 <script setup>
-import {ref} from "vue";
-import SvgIcon from '@jamescoyle/vue-icon';
-import { mdiSend } from '@mdi/js';
-import {useCreateTask} from "../services/taskService";
-
-const newTask = ref("")
-const path = ref(mdiSend);
+import {ref} from "vue"
+import SvgIcon from '@jamescoyle/vue-icon'
+import { mdiSend } from '@mdi/js'
+import {useCreateTask} from "../services/taskService"
 
 const { mutate: createTaskMutate } = useCreateTask()
+
+const path = ref(mdiSend)
+const newTask = ref("")
 
 function handleCreateTask() {
   createTaskMutate({title: newTask.value})
@@ -47,10 +47,10 @@ function handleCreateTask() {
 .icon-container{
   display: flex;
   align-items: center;
-  color: #8685e7;
 }
 
 .icon{
+  color: #8685e7;
   width: auto;
   height: 40px;
 }

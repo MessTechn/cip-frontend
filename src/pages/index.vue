@@ -1,10 +1,7 @@
 <script setup>
-import { useQuery } from "@tanstack/vue-query";
-import TaskList from "../components/TaskList.vue";
-import TaskNewForm from "../components/TaskNewForm.vue";
-import Header from "../components/Header.vue";
-import TasksClearButton from "../components/TasksClearButton.vue";
-
+import TaskList from "../components/TaskList.vue"
+import TaskNewForm from "../components/TaskNewForm.vue"
+import Header from "../components/Header.vue"
 </script>
 
 <template>

@@ -15,9 +15,7 @@ const vuetify = createVuetify({
 
 const app = createApp(App)
 
-
 app.use(VueQueryPlugin)
-
 app.use(router)
 app.use(vuetify)
 

@@ -21,7 +21,6 @@ import placeholder from "@/assets/sw-horizontal-color-black.svg"
 .logo-title-container {
   display: flex;
   align-items: center;
-  gap: 1rem;
   position: relative;
 }
 

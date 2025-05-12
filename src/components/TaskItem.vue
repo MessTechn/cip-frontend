@@ -1,12 +1,9 @@
 <script setup>
-import {computed, ref} from "vue";
-import SvgIcon from "@jamescoyle/vue-icon";
-import {mdiCheckCircle, mdiCircleOutline, mdiTrashCanOutline} from "@mdi/js";
-import {useDeleteTask, useUpdateTask} from "../services/taskService";
+import {computed, ref} from "vue"
+import SvgIcon from "@jamescoyle/vue-icon"
+import {mdiCheckCircle, mdiCircleOutline, mdiTrashCanOutline} from "@mdi/js"
+import {useDeleteTask, useUpdateTask} from "../services/taskService"
 
-const checkedIcon = ref(mdiCheckCircle);
-const uncheckedIcon = ref(mdiCircleOutline);
-const deleteIcon = ref(mdiTrashCanOutline);
 const props = defineProps({
   id: Number,
   title: String,
@@ -14,22 +11,26 @@ const props = defineProps({
   createdAt: String
 })
 
+const { mutate: updateTaskMutate} = useUpdateTask()
+const { mutate: deleteTaskMutate} = useDeleteTask()
+
+const checkedIcon = ref(mdiCheckCircle)
+const uncheckedIcon = ref(mdiCircleOutline)
+const deleteIcon = ref(mdiTrashCanOutline)
+
 const formattedCreatedAt = computed(() => {
   if (props.createdAt === null) {
     return null
   }
-  const utcDate = new Date(props.createdAt);
-  const day = String(utcDate.getDate()).padStart(2, '0');
-  const month = String(utcDate.getMonth() + 1).padStart(2, '0');
-  const year = utcDate.getFullYear();
-  const hours = String(utcDate.getHours()).padStart(2, '0');
-  const minutes = String(utcDate.getMinutes()).padStart(2, '0');
+  const utcDate = new Date(props.createdAt)
+  const day = String(utcDate.getDate()).padStart(2, '0')
+  const month = String(utcDate.getMonth() + 1).padStart(2, '0')
+  const year = utcDate.getFullYear()
+  const hours = String(utcDate.getHours()).padStart(2, '0')
+  const minutes = String(utcDate.getMinutes()).padStart(2, '0')
 
-  return `${day}.${month}.${year} ${hours}:${minutes} Uhr`;
-});
-
-const { mutate: updateTaskMutate} = useUpdateTask()
-const { mutate: deleteTaskMutate} = useDeleteTask()
+  return `${day}.${month}.${year} ${hours}:${minutes} Uhr`
+})
 
 function handleUpdateTask() {
   updateTaskMutate({id: props.id, data: {completed: !props.completed}})

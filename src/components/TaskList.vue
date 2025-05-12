@@ -1,10 +1,9 @@
 <script setup>
-import {computed} from "vue";
-import TaskItem from "./TaskItem.vue";
-import {useQuery} from "@tanstack/vue-query";
+import {computed} from "vue"
+import TaskItem from "./TaskItem.vue"
 import todoIllustration from "@/assets/todo-list-illustration.webp"
-import TasksClearButton from "./TasksClearButton.vue";
-import {useFetchDoneTasks, useFetchOpenTasks} from "../services/taskService";
+import TasksClearButton from "./TasksClearButton.vue"
+import {useFetchDoneTasks, useFetchOpenTasks} from "../services/taskService"
 
 const { data: openTasks} = useFetchOpenTasks()
 const { data: doneTasks} = useFetchDoneTasks()
@@ -13,15 +12,15 @@ const openTasksAmount = computed(() => {
   if (openTasks.value === undefined) {
     return 0
   }
-  return Object.keys(openTasks.value).length > 0 ? Object.keys(openTasks.value).length : 0;
-});
+  return Object.keys(openTasks.value).length > 0 ? Object.keys(openTasks.value).length : 0
+})
 
 const doneTasksAmount = computed(() => {
   if (doneTasks.value === undefined) {
     return 0
   }
-  return Object.keys(doneTasks.value).length > 0 ? Object.keys(doneTasks.value).length : 0;
-});
+  return Object.keys(doneTasks.value).length > 0 ? Object.keys(doneTasks.value).length : 0
+})
 </script>
 
 <template>
